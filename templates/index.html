@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To-do List (ou algo parecido)</h1>
+    <table>
+        <thead>
+            <th>Nome</th>
+            <th>Feito</th>
+        </thead>
+        <tbody>
+            {%for tarefa in tarefas%}
+            <tr>
+                <td>{{tarefa[1]}}</td>
+                <td>
+                    {%if tarefa[2] == 'on'%}
+                    Sim
+                    {%else%}
+                    Não
+                    {%endif%}
+                </td>
+                <td><a href="/editar/{{tarefa[0]}}">Editar</a></td>
+                <td><a href="/excluir/{{tarefa[0]}}">Excluir</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <a href="/adicionar">Adicionar</a>
+</body>
+</html>
